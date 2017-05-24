@@ -1,0 +1,72 @@
+mkdir User1
+cd User1
+git clone https://github.com/QingguoC/practiceMay23rd2017.git
+cd practiceMay23rd2017/
+mkdir Assignment2
+cd Assignment2/
+touch myinfo.txt
+vim myinfo.txt 
+git add myinfo.txt 
+git commit -m "Added myinfo file"
+
+git branch development
+git checkout development
+touch dev1.txt
+vim dev1.txt 
+ git add dev1.txt
+git commit -m "Added dev1 file"
+vim myinfo.txt 
+git commit -a -m "Edited myinfo file"
+git merge development -m "Merge #1"
+git push --all origin
+
+#terminal 2
+mkdir User2
+cd User2
+git clone https://github.com/QingguoC/practiceMay23rd2017.git
+cd practiceMay23rd2017/
+cd Assignment2/
+git checkout development
+touch dev2.txt
+vim dev2.txt
+git commit -m "Added dev2 file"
+git checkout -b temp
+
+touch mytemp.txt
+vim mytemp.txt
+git commit -m "Added mytemp file"
+git checkout development
+touch dev3.txt
+vim dev3.txt
+git commit -m "Added dev3 file"
+git merge temp -m "Merge #2"
+git checkout master
+git merge development -m "Merge #3"
+vim myinfo.txt
+git commit -a -m "Edited myinfo file again"
+git push --all origin
+
+#terminal 1
+
+vim myinfo.txt 
+git commit -a -m "Edited myinfo file for the third time"
+git fetch origin master
+git merge origin/master
+vim myinfo.txt
+git commit -a -m "Final merge with conflicts fixed"
+
+git push origin master
+
+git tag V1
+git push origin V1
+
+
+
+
+
+
+
+
+
+
+
